@@ -1,0 +1,16 @@
+{
+    "name": "williamtome/site-institucional",
+    "authors": [
+        {
+            "name": "William Tomé",
+            "email": "william.tomenh@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Site\\": "src/"
+        }
+    },
+    "require": {},
+    "description": "Projeto de site institucional em Arcom PHP"
+}
