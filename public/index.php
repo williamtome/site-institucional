@@ -9,10 +9,17 @@ $controller = isset($url[0]) && $url[0] ? $url[0] : 'home';
 
 $action = isset($url[1]) && $url[1] ? $url[1] : 'index';
 
-//$params = isset($url[2]) && $url[2] ? $url[2] : '';
+$params = isset($url[2]) && $url[2] ? $url[2] : null;
 
-$controller = "Site\Controllers\\" . ucfirst($controller) . 'Controller';
+if (!class_exists($controller = "Site\Controllers\\" . ucfirst($controller) . 'Controller')) {
+    die('404 - Página não encontrada.');
+}
 
-$response = call_user_func_array([new $controller, $action], []);
+if (!method_exists($controller, $action)) {
+    $action = 'index';
+    $params = $url[1];
+}
+
+$response = call_user_func_array([new $controller, $action], [$params]);
 
 print $response;
