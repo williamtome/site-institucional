@@ -4,10 +4,13 @@
 namespace Site\Controllers;
 
 
+use Site\View\View;
+
 class HomeController
 {
     public function index()
     {
-        return "<h1>Hello World</h1>";
+        $view = new View('site/index.phtml');
+        return $view->render();
     }
 }
