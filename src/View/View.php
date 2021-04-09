@@ -26,6 +26,6 @@ class View
     {
         ob_start();
         require VIEWS_PATH . $this->view;
-        ob_get_clean();
+        return ob_get_clean();
     }
 }
